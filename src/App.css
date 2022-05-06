@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
 }
-
 .App {
   display: flex;
   flex-direction: column;
@@ -10,6 +9,26 @@
   margin: 20px;
   padding: 10px;
   height: 90vh;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   border-radius: 5px;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: auto;
+  margin-top: 20px;
+}
+.header {
+  display: block;
+}
+
+.label-desc, .sublabel-desc {
+  margin-left: 8px;
+}
+
+.sublabel-desc {
+  font-size: 0.8rem;
+  color: darkgray;
 }
