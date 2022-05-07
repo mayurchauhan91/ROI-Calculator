@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import MenuItem from "@mui/material/MenuItem";
-import TextField from "@mui/material/TextField";
-import { Slider } from "@mui/material";
-import { useState } from "react";
+import { Slider, TextField, MenuItem, Button } from "@mui/material";
+
 const currencies = [
   {
     value: "GBP",
@@ -129,6 +127,10 @@ const Input = () => {
           ></TextField>
         </Box>
       </div>
+      <br />
+      <Button variant="contained" size="medium">
+        Submit
+      </Button>
     </Box>
   );
 };
