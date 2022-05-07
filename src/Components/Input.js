@@ -24,20 +24,23 @@ const Input = () => {
   const [startAmount, setStartAmount] = useState();
   const [monthlyInvest, setMonthlyInvest] = useState();
   const [ageValue, setAgeValue] = useState(25);
+  const [rate, setRate] = useState();
   const handleStartAmountChange = (e) => {
     setStartAmount(e.target.value);
   };
   const handleInvestAmountChange = (e) => {
     setMonthlyInvest(e.target.value);
   };
-  console.log(monthlyInvest);
   const handleCurrencyChange = (e) => {
     setCurrency(e.target.value);
   };
 
   const handleAgeValueChange = (e) => {
-    console.log(ageValue);
     setAgeValue(e.target.value);
+  };
+
+  const handleRateChange = (e) => {
+    setRate(e.target.value);
   };
   return (
     <Box
@@ -58,6 +61,7 @@ const Input = () => {
           autoComplete="off"
         >
           <div className="form-container">
+            <span className="sublabel-desc">Please select your currency</span>
             <TextField
               required
               id="outlined-select-currency"
@@ -72,10 +76,12 @@ const Input = () => {
                 </MenuItem>
               ))}
             </TextField>
-            <span className="sublabel-desc">Please select your currency</span>
           </div>
         </Box>
         <br />
+        <span className="sublabel-desc">
+          How much your investments begins with?
+        </span>
         <TextField
           required
           id="outlined-required"
@@ -85,10 +91,10 @@ const Input = () => {
           value={startAmount}
           handleChange={handleStartAmountChange}
         />
-        <span className="sublabel-desc">
-          How much your investments begins with?
-        </span>
         <br />
+        <span className="sublabel-desc">
+          How much would you like to contribute each month?
+        </span>
         <TextField
           required
           id="outlined-required"
@@ -107,6 +113,20 @@ const Input = () => {
             onChange={handleAgeValueChange}
             valueLabelDisplay="auto"
           />
+          <span>{ageValue} Years</span>
+        </Box>
+        <br />
+        <span className="sublabel-desc">Estimate Rate of Return %</span>
+        <Box>
+          <TextField
+            required
+            id="outlined-required"
+            label="Estimate Rate"
+            placeholder={"5.00 %"}
+            value={rate}
+            defaultValue=""
+            onChange={handleRateChange}
+          ></TextField>
         </Box>
       </div>
     </Box>
