@@ -1,137 +1,111 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import { Slider, TextField, MenuItem, Button } from "@mui/material";
+import currencies from "./currencies";
 
-const currencies = [
-  {
-    value: "GBP",
-    label: "£",
-  },
-  {
-    value: "USD",
-    label: "$",
-  },
-  {
-    value: "EUR",
-    label: "€",
-  },
-];
-
-const Input = () => {
-  const [currency, setCurrency] = useState("£");
-  const [startAmount, setStartAmount] = useState();
-  const [monthlyInvest, setMonthlyInvest] = useState();
-  const [ageValue, setAgeValue] = useState(25);
-  const [rate, setRate] = useState();
-  const handleStartAmountChange = (e) => {
-    setStartAmount(e.target.value);
-  };
-  const handleInvestAmountChange = (e) => {
-    setMonthlyInvest(e.target.value);
-  };
-  const handleCurrencyChange = (e) => {
-    setCurrency(e.target.value);
-  };
-
-  const handleAgeValueChange = (e) => {
-    setAgeValue(e.target.value);
-  };
-
-  const handleRateChange = (e) => {
-    setRate(e.target.value);
-  };
+const Input = ({
+  currency,
+  startAmount,
+  monthlyInvest,
+  ageValue,
+  rate,
+  currencyChange,
+  startAmountChange,
+  investAmountChange,
+  ageValueChange,
+  rateChange,
+  onSubmit,
+}) => {
   return (
-    <Box
-      component="form"
-      sx={{
-        "& .MuiTextField-root": { width: "200px" },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div className="form-container">
+    <div>
+      <form>
         <Box
           component="form"
           sx={{
-            "& .MuiTextField-root": { width: "12ch" },
+            "& .MuiTextField-root": { width: "200px" },
           }}
           noValidate
           autoComplete="off"
         >
           <div className="form-container">
-            <span className="sublabel-desc">Please select your currency</span>
+            <div className="form-container">
+              <span className="sublabel-desc">Please select your currency</span>
+              <TextField
+                required
+                id="outlined-select-currency"
+                select
+                label="Currency"
+                value={currency}
+                onChange={currencyChange}
+              >
+                {currencies.map((option) => (
+                  <MenuItem key={option.value} value={option.label}>
+                    {option.value}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+            <br />
+            <span className="sublabel-desc">
+              How much your investments begins with?
+            </span>
             <TextField
               required
-              id="outlined-select-currency"
-              select
-              label="Currency"
-              value={currency}
-              onChange={handleCurrencyChange}
-            >
-              {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.label}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
+              type="number"
+              id="outlined"
+              label="Initial Deposit"
+              placeholder={currency + " " + "10000.00"}
+              defaultValue=""
+              value={startAmount}
+              onChange={startAmountChange}
+            />
+            <br />
+            <span className="sublabel-desc">
+              How much would you like to contribute each month?
+            </span>
+            <TextField
+              required
+              type="number"
+              id="outlined-required"
+              label="Monthly Investment"
+              placeholder={currency + " " + "500.00"}
+              defaultValue=""
+              value={monthlyInvest}
+              onChange={investAmountChange}
+            />
+            <br />
+            <Box sx={{ marginLeft: 0.7, width: 195 }}>
+              <span className="sublabel-desc">Time Period</span>
+              <Slider
+                required
+                // getAriaLabel={() => "Temperature range"}
+                value={ageValue}
+                onChange={ageValueChange}
+                valueLabelDisplay="auto"
+              />
+              <span>{ageValue} Years</span>
+            </Box>
+            <br />
+            <span className="sublabel-desc">Estimate Rate of Return %</span>
+            <div>
+              <TextField
+                required
+                id="outlined-required"
+                label="Estimate Rate"
+                placeholder={"5.00 %"}
+                value={rate}
+                defaultValue=""
+                onChange={rateChange}
+              ></TextField>
+            </div>
           </div>
+          <br />
+          <Button variant="contained" type="submit" size="medium">
+            Submit
+          </Button>
         </Box>
-        <br />
-        <span className="sublabel-desc">
-          How much your investments begins with?
-        </span>
-        <TextField
-          required
-          id="outlined-required"
-          label="Initial Deposit"
-          placeholder={currency + " " + "10000.00"}
-          defaultValue=""
-          value={startAmount}
-          handleChange={handleStartAmountChange}
-        />
-        <br />
-        <span className="sublabel-desc">
-          How much would you like to contribute each month?
-        </span>
-        <TextField
-          required
-          id="outlined-required"
-          label="Monthly Investment"
-          placeholder={currency + " " + "500.00"}
-          defaultValue=""
-          value={monthlyInvest}
-          handleChange={handleInvestAmountChange}
-        />
-        <br />
-        <Box sx={{ marginLeft: 0.7, width: 195 }}>
-          <span className="sublabel-desc">Time Period</span>
-          <Slider
-            // getAriaLabel={() => "Temperature range"}
-            value={ageValue}
-            onChange={handleAgeValueChange}
-            valueLabelDisplay="auto"
-          />
-          <span>{ageValue} Years</span>
-        </Box>
-        <br />
-        <span className="sublabel-desc">Estimate Rate of Return %</span>
-        <Box>
-          <TextField
-            required
-            id="outlined-required"
-            label="Estimate Rate"
-            placeholder={"5.00 %"}
-            value={rate}
-            defaultValue=""
-            onChange={handleRateChange}
-          ></TextField>
-        </Box>
-      </div>
-      <br />
-      <Button variant="contained" size="medium">
-        Submit
-      </Button>
-    </Box>
+      </form>
+    </div>
   );
 };
 
