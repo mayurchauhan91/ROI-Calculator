@@ -1,6 +1,12 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { Slider, TextField, MenuItem, Button } from "@mui/material";
+import {
+  Slider,
+  TextField,
+  MenuItem,
+  Button,
+  FormControl,
+} from "@mui/material";
 import currencies from "./currencies";
 
 const Input = ({
@@ -18,7 +24,7 @@ const Input = ({
 }) => {
   return (
     <div>
-      <form>
+      <FormControl onSubmit={onSubmit}>
         <Box
           component="form"
           sx={{
@@ -74,7 +80,7 @@ const Input = ({
               onChange={investAmountChange}
             />
             <br />
-            <Box sx={{ marginLeft: 0.7, width: 195 }}>
+            <div style={{ marginLeft: 0.7, width: 195 }}>
               <span className="sublabel-desc">Time Period</span>
               <Slider
                 required
@@ -84,7 +90,7 @@ const Input = ({
                 valueLabelDisplay="auto"
               />
               <span>{ageValue} Years</span>
-            </Box>
+            </div>
             <br />
             <span className="sublabel-desc">Estimate Rate of Return %</span>
             <div>
@@ -96,15 +102,22 @@ const Input = ({
                 value={rate}
                 defaultValue=""
                 onChange={rateChange}
-              ></TextField>
+              />
+            </div>
+            <br />
+            <div>
+              <Button
+                variant="contained"
+                type="buton"
+                size="medium"
+                onClick={onSubmit}
+              >
+                Submit
+              </Button>
             </div>
           </div>
-          <br />
-          <Button variant="contained" type="submit" size="medium">
-            Submit
-          </Button>
         </Box>
-      </form>
+      </FormControl>
     </div>
   );
 };
