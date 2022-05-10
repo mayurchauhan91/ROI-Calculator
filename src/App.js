@@ -16,25 +16,25 @@ function App() {
   const calculateAmount =
     parseInt(startAmount) + parseInt(totalMonthlyInvestment);
 
-  const calculate = () => {
-    // const result = [];
-    // let currentBalance = startAmount;
-    // const startAge = 0;
-    // while (startAge <= ageValue) {
-    //   for (let i = 0; i < 12; i++) {
-    //     currentBalance =
-    //       Math.round(currentBalance * interest) + totalMonthlyInvestment;
-    //   }
-    //   result.push({
-    //     startAge,
-    //     balance: currentBalance,
-    //   });
-    //   startAge++;
-    // }
-    // return result;
-    // const result = calculateAmount * Math.pow(1 + interest, ageValue);
-    // setResult(result.toFixed(2));
-  };
+  // const calculate = () => {
+  // const result = [];
+  // let currentBalance = startAmount;
+  // const startAge = 0;
+  // while (startAge <= ageValue) {
+  //   for (let i = 0; i < 12; i++) {
+  //     currentBalance =
+  //       Math.round(currentBalance * interest) + totalMonthlyInvestment;
+  //   }
+  //   result.push({
+  //     startAge,
+  //     balance: currentBalance,
+  //   });
+  //   startAge++;
+  // }
+  // return result;
+  // const result = calculateAmount * Math.pow(1 + interest, ageValue);
+  // setResult(result.toFixed(2));
+  // };
 
   const handleCurrencyChange = (e) => {
     setCurrency(e.target.value);

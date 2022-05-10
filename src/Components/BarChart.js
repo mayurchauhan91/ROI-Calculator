@@ -1,5 +1,5 @@
 import React from "react";
-import { Chart as Chartjs, defaults } from "chart.js/auto";
+import { Chart as Chartjs } from "chart.js/auto";
 import { Bar, Chart } from "react-chartjs-2";
 
 const BarChart = ({ ageValue, results }) => {
