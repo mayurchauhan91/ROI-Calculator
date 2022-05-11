@@ -1,40 +1,26 @@
 import React, { useState } from "react";
 import "./App.css";
-import Input from "./Components/Input";
+import InputComponent from "./Components/Input";
 import BarChart from "./Components/BarChart";
 
 function App() {
   const [currency, setCurrency] = useState("£");
-  const [startAmount, setStartAmount] = useState(10000);
-  const [monthlyInvest, setMonthlyInvest] = useState(100);
-  const [ageValue, setAgeValue] = useState(20);
-  const [rate, setRate] = useState(7.5);
-  const [result, setResult] = useState();
+  const [startAmount, setStartAmount] = useState("");
+  const [monthlyInvest, setMonthlyInvest] = useState("");
+  const [ageValue, setAgeValue] = useState(2);
+  const [rate, setRate] = useState("");
+  const [result, setResult] = useState("");
 
   const interest = rate / 100;
   const totalMonthlyInvestment = Math.floor(monthlyInvest * 12);
   const calculateAmount =
     parseInt(startAmount) + parseInt(totalMonthlyInvestment);
+  const results = calculateAmount * Math.pow(1 + interest, ageValue);
 
-  // const calculate = () => {
-  // const result = [];
-  // let currentBalance = startAmount;
-  // const startAge = 0;
-  // while (startAge <= ageValue) {
-  //   for (let i = 0; i < 12; i++) {
-  //     currentBalance =
-  //       Math.round(currentBalance * interest) + totalMonthlyInvestment;
-  //   }
-  //   result.push({
-  //     startAge,
-  //     balance: currentBalance,
-  //   });
-  //   startAge++;
-  // }
-  // return result;
-  // const result = calculateAmount * Math.pow(1 + interest, ageValue);
-  // setResult(result.toFixed(2));
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setResult(results.toFixed(2));
+  };
 
   const handleCurrencyChange = (e) => {
     setCurrency(e.target.value);
@@ -52,22 +38,13 @@ function App() {
     setRate(e.target.value);
   };
 
-  const results = calculateAmount * Math.pow(1 + interest, ageValue);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setResult(results);
-  };
-
-  console.log(result);
-
   return (
     <div className="App">
       <h1 className="header">ROI</h1>
       <div className="main-container">
-        <Input
+        <InputComponent
           registration={{
-            required: "Required",
+            required: "required",
             min: 0,
           }}
           currency={currency}
@@ -80,18 +57,11 @@ function App() {
           investAmountChange={handleInvestAmountChange}
           ageValueChange={handleAgeValueChange}
           rateChange={handleRateChange}
-          OnSubmit={handleSubmit}
+          handleSubmit={handleSubmit}
         />
         <div>
-          <BarChart
-            ageValue={ageValue}
-            results={results.toFixed(2)}
-            currency={currency}
-          />
+          <BarChart ageValue={ageValue} results={result} currency={currency} />
         </div>
-        <span>
-          {results.toFixed(2)} {currency}
-        </span>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
-import { Chart as Chartjs } from "chart.js/auto";
-import { Bar, Chart } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 
 const BarChart = ({ ageValue, results }) => {
   const chartData = {
