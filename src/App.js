@@ -12,7 +12,8 @@ function App() {
   const [result, setResult] = useState("");
 
   const interest = rate / 100;
-  const totalMonthlyInvestment = Math.floor(monthlyInvest * 12);
+  const totalMonthlyInvestment = Math.floor(monthlyInvest * ageValue * 12);
+
   const calculateAmount =
     parseInt(startAmount) + parseInt(totalMonthlyInvestment);
   const results = calculateAmount * Math.pow(1 + interest, ageValue);
