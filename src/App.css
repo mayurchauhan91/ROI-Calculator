@@ -9,6 +9,7 @@
 .App {
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 20px;
   padding: 10px;
   height: 90vh;
@@ -17,13 +18,14 @@
 }
 .main-container {
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 90%;
-  margin-top: 10px;
   width: 95%;
 }
 .header {
   display: block;
+  color:rgb(74, 74, 74);
+  margin: 20px 20px 20px 20px;
 }
 .form-container {
   flex-direction: column;
@@ -33,4 +35,12 @@
   font-size: 0.8rem;
   color: darkgray;
   margin-bottom: 10px;
+}
+
+.chart-container {
+  height: fit-content;
+  margin-top: 60px;
+}
+.button {
+  margin: 0 25px;
 }

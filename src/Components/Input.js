@@ -100,14 +100,17 @@ const InputComponent = ({
             onChange={rateChange}
           />
           <br />
-          <Button
-            style={{ width: 150 }}
-            variant="contained"
-            type="submit"
-            size="medium"
-          >
-            Submit
-          </Button>
+          <br />
+          <div className="button">
+            <Button
+              style={{ width: 150 }}
+              variant="contained"
+              type="submit"
+              size="medium"
+            >
+              Submit
+            </Button>
+          </div>
         </div>
       </FormControl>
     </div>

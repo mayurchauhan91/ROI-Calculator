@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="header">ROI</h1>
+      <h1 className="header">ROI Calculator</h1>
       <div className="main-container">
         <InputComponent
           registration={{
@@ -60,7 +60,7 @@ function App() {
           rateChange={handleRateChange}
           handleSubmit={handleSubmit}
         />
-        <div>
+        <div className="chart-container">
           <BarChart ageValue={ageValue} results={result} currency={currency} />
         </div>
       </div>
