@@ -9,18 +9,49 @@ function App() {
   const [monthlyInvest, setMonthlyInvest] = useState("");
   const [ageValue, setAgeValue] = useState(2);
   const [rate, setRate] = useState("");
-  const [result, setResult] = useState("");
+  const [calculateAgeValue, setCalculateAgeValue] = useState("");
+  const [calculateBalanceValue, setCalculateBalanceValue] = useState("");
 
-  const interest = rate / 100;
-  const totalMonthlyInvestment = Math.floor(monthlyInvest * ageValue * 12);
+  const calculation = () => {
+    const startAge = 1;
+    const finalResult = [];
+    let age = startAge;
+    let currentBalance = startAmount;
+    const monthlyRate = Math.pow(1 + rate / 100, 1 / 12);
+    while (age <= ageValue) {
+      for (let i = 0; i < 12; i++) {
+        currentBalance =
+          Math.round(currentBalance * monthlyRate) + parseInt(monthlyInvest);
+      }
+      finalResult.push({
+        age,
+        balance: currentBalance,
+      });
 
-  const calculateAmount =
-    parseInt(startAmount) + parseInt(totalMonthlyInvestment);
-  const results = calculateAmount * Math.pow(1 + interest, ageValue);
+      age++;
+      console.log(finalResult);
+    }
+    return finalResult;
+  };
+
+  const calculateBalance = (value) => {
+    return calculation(value).map((balanceData) => {
+      return [balanceData.balance];
+    });
+  };
+
+  console.log(calculateBalanceValue);
+
+  const calculateAge = (value) => {
+    return calculation(value).map((yearData) => {
+      return [yearData.age];
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setResult(results.toFixed(2));
+    setCalculateBalanceValue(calculateBalance());
+    setCalculateAgeValue(calculateAge());
   };
 
   const handleCurrencyChange = (e) => {
@@ -61,7 +92,12 @@ function App() {
           handleSubmit={handleSubmit}
         />
         <div className="chart-container">
-          <BarChart ageValue={ageValue} results={result} currency={currency} />
+          <BarChart
+            ageValue={ageValue}
+            currency={currency}
+            ageData={calculateAgeValue}
+            balanceValue={calculateBalanceValue}
+          />
         </div>
       </div>
     </div>

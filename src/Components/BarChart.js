@@ -3,13 +3,13 @@ import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
-const BarChart = ({ ageValue, results }) => {
+const BarChart = ({ ageData, balanceValue }) => {
   const chartData = {
-    labels: [ageValue],
+    labels: ageData,
     datasets: [
       {
         label: "Balance",
-        data: [results],
+        data: balanceValue,
         backgroundColor: ["rgba(75, 192, 192, 0.3)"],
         borderColor: ["rgba(75,192,192,1)"],
         borderWidth: 1,
@@ -24,6 +24,7 @@ const BarChart = ({ ageValue, results }) => {
         width={600}
         height={400}
         options={{
+          responsive: true,
           maintainAspectRatio: false,
         }}
       />
