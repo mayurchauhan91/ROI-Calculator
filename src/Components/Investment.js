@@ -1,5 +1,6 @@
 // react-imports
 import React, { useState } from "react";
+// material ui imports
 import {
   Slider,
   TextField,
@@ -7,7 +8,7 @@ import {
   Button,
   FormControl,
 } from "@mui/material";
-// material ui imports
+// components imports
 import currencies from "./Currencies";
 
 const Investment = ({ submitAgeValue, submitBalanceValue }) => {
