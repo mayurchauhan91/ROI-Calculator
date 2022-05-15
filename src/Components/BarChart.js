@@ -7,11 +7,7 @@ import { Chart, registerables } from "chart.js";
 // chartjs dependencies
 Chart.register(...registerables);
 
-const BarChart = ({
-  // props
-  ageData,
-  balanceValue,
-}) => {
+const BarChart = ({ ageData, balanceValue }) => {
   const chartData = {
     labels: ageData,
     datasets: [
