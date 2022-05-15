@@ -79,7 +79,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="header">ROI Calculator</h1>
+      <h1 className="header">ROI Calculator Test</h1>
       <div className="main-container">
         <Investment
           currency={currency}
