@@ -36,7 +36,7 @@ function App() {
 
   const calculateBalance = (value) => {
     return calculation(value).map((balanceData) => {
-      return [balanceData.balance];
+      return balanceData.balance;
     });
   };
 
