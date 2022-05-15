@@ -1,3 +1,4 @@
+// react-imports
 import React from "react";
 import {
   Slider,
@@ -6,9 +7,11 @@ import {
   Button,
   FormControl,
 } from "@mui/material";
-import currencies from "./currencies";
+// material ui imports
+import currencies from "./Currencies";
 
-const InputComponent = ({
+const Investment = ({
+  //props
   currency,
   startAmount,
   monthlyInvest,
@@ -28,7 +31,6 @@ const InputComponent = ({
         sx={{
           "& .MuiTextField-root": { width: "200px" },
         }}
-        noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
       >
@@ -77,7 +79,6 @@ const InputComponent = ({
             onChange={investAmountChange}
           />
           <br />
-          {/* <div style={{ marginLeft: 0.7, width: 195 }}> */}
           <label className="sublabel-desc">Time Period</label>
           <Slider
             required
@@ -91,6 +92,7 @@ const InputComponent = ({
           <label className="sublabel-desc">Estimate Rate of Return %</label>
           <TextField
             required
+            noValidate
             type="number"
             id="outlined-required"
             label="Estimate Rate"
@@ -117,4 +119,4 @@ const InputComponent = ({
   );
 };
 
-export default InputComponent;
+export default Investment;

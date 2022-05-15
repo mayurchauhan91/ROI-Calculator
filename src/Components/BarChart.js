@@ -1,9 +1,17 @@
+// react-imports
 import React from "react";
+// react-chartjs imports
 import { Bar } from "react-chartjs-2";
+// chart.js imports
 import { Chart, registerables } from "chart.js";
+// chartjs dependencies
 Chart.register(...registerables);
 
-const BarChart = ({ ageData, balanceValue }) => {
+const BarChart = ({
+  // props
+  ageData,
+  balanceValue,
+}) => {
   const chartData = {
     labels: ageData,
     datasets: [
@@ -24,7 +32,6 @@ const BarChart = ({ ageData, balanceValue }) => {
         width={600}
         height={400}
         options={{
-          responsive: true,
           maintainAspectRatio: false,
         }}
       />
