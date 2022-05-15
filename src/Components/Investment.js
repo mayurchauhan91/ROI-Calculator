@@ -1,5 +1,5 @@
 // react-imports
-import React from "react";
+import React, { useState } from "react";
 import {
   Slider,
   TextField,
@@ -10,20 +10,74 @@ import {
 // material ui imports
 import currencies from "./Currencies";
 
-const Investment = ({
-  //props
-  currency,
-  startAmount,
-  monthlyInvest,
-  ageValue,
-  rate,
-  currencyChange,
-  startAmountChange,
-  investAmountChange,
-  ageValueChange,
-  rateChange,
-  handleSubmit,
-}) => {
+const Investment = ({ submitAgeValue, submitBalanceValue }) => {
+  const [currency, setCurrency] = useState("£");
+  const [startAmount, setStartAmount] = useState("");
+  const [monthlyInvest, setMonthlyInvest] = useState("");
+  const [ageValue, setAgeValue] = useState(0);
+  const [rate, setRate] = useState("");
+
+  // methods
+  const handleCurrencyChange = (e) => {
+    setCurrency(e.target.value);
+  };
+
+  const handleStartAmountChange = (e) => {
+    setStartAmount(e.target.value);
+  };
+
+  const handleInvestAmountChange = (e) => {
+    setMonthlyInvest(e.target.value);
+  };
+
+  const handleAgeValueChange = (e) => {
+    setAgeValue(e.target.value);
+  };
+
+  const handleRateChange = (e) => {
+    setRate(e.target.value);
+  };
+
+  const calculation = () => {
+    // consts
+    const startAge = 1;
+    const finalResult = [];
+    let age = startAge;
+    let currentBalance = startAmount;
+    const monthlyRate = Math.pow(1 + rate / 100, 1 / 12);
+
+    while (age <= ageValue) {
+      for (let i = 0; i < 12; i++) {
+        currentBalance =
+          Math.round(currentBalance * monthlyRate) + parseInt(monthlyInvest);
+      }
+      finalResult.push({
+        age,
+        balance: currentBalance,
+      });
+      age++;
+    }
+    return finalResult;
+  };
+
+  const calculateBalance = (value) => {
+    return calculation(value).map((balanceData) => {
+      return balanceData.balance;
+    });
+  };
+
+  const calculateAge = (value) => {
+    return calculation(value).map((yearData) => {
+      return yearData.age;
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitAgeValue(calculateAge());
+    submitBalanceValue(calculateBalance());
+  };
+
   return (
     <div>
       <FormControl
@@ -42,7 +96,7 @@ const Investment = ({
             select
             label="Currency"
             value={currency}
-            onChange={currencyChange}
+            onChange={handleCurrencyChange}
           >
             {currencies.map((option) => (
               <MenuItem key={option.value} value={option.label}>
@@ -62,7 +116,7 @@ const Investment = ({
             placeholder={currency + "10000.00"}
             defaultValue=""
             value={startAmount}
-            onChange={startAmountChange}
+            onChange={handleStartAmountChange}
           />
           <br />
           <label className="sublabel-desc">
@@ -76,14 +130,14 @@ const Investment = ({
             placeholder={currency + "500.00"}
             defaultValue=""
             value={monthlyInvest}
-            onChange={investAmountChange}
+            onChange={handleInvestAmountChange}
           />
           <br />
           <label className="sublabel-desc">Time Period</label>
           <Slider
             required
             value={ageValue || ""}
-            onChange={ageValueChange}
+            onChange={handleAgeValueChange}
             valueLabelDisplay="auto"
             style={{ width: 195 }}
           />
@@ -99,7 +153,7 @@ const Investment = ({
             placeholder={"5.00 %"}
             value={rate}
             defaultValue=""
-            onChange={rateChange}
+            onChange={handleRateChange}
           />
           <br />
           <br />
