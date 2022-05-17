@@ -9,7 +9,7 @@ import {
   FormControl,
 } from "@mui/material";
 // components imports
-import currencies from "./Currencies";
+import Currencies from "./Currencies";
 
 const Investment = ({ submitAgeValue, submitBalanceValue }) => {
   const [currency, setCurrency] = useState("£");
@@ -99,7 +99,7 @@ const Investment = ({ submitAgeValue, submitBalanceValue }) => {
             value={currency}
             onChange={handleCurrencyChange}
           >
-            {currencies.map((option) => (
+            {Currencies.map((option) => (
               <MenuItem key={option.value} value={option.label}>
                 {option.value}
               </MenuItem>
