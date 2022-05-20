@@ -29,6 +29,14 @@ const BarChart = ({ ageData, balanceValue }) => {
         height={400}
         options={{
           maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                usePointStyle: true,
+                pointStyle: "rect",
+              },
+            },
+          },
         }}
       />
     </div>

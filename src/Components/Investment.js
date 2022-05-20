@@ -15,7 +15,7 @@ const Investment = ({ submitAgeValue, submitBalanceValue }) => {
   const [currency, setCurrency] = useState("£");
   const [startAmount, setStartAmount] = useState("");
   const [monthlyInvest, setMonthlyInvest] = useState("");
-  const [ageValue, setAgeValue] = useState("0");
+  const [ageValue, setAgeValue] = useState([0]);
   const [rate, setRate] = useState("");
 
   // methods

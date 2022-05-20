@@ -3,6 +3,9 @@
   padding: 0;
   font-family: 'Roboto Flex', sans-serif;;
 }
+html {
+  background-color: #80c1ff;
+}
 .App, .main-container, .form-container {
   display: flex;
 }
@@ -10,25 +13,37 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  margin: 30px;
+  height: 93vh;
   padding: 10px;
-  height: 90vh;
   border: 1px solid lightgray;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: white;
+}
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 .main-container {
   flex-direction: row;
   justify-content: space-around;
-  height: 90%;
   width: 95%;
+  padding-bottom: 20px;
 }
 .header {
   display: block;
   color:rgb(74, 74, 74);
-  margin: 20px 20px 20px 20px;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
 }
 .form-container {
   flex-direction: column;
+  width: 210px;
 }
 
 .sublabel-desc {
@@ -40,7 +55,83 @@
 .chart-container {
   height: fit-content;
   margin-top: 60px;
+  width: 700px;
 }
 .button {
   margin: 0 25px;
 }
+
+@media only screen and (max-width: 399px) {
+ .App {
+   flex-direction: column;
+   align-items: center;
+   padding: 0;
+   margin: 10px;
+   border: none;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+ }
+ .main-container {
+   flex-direction: column;
+   align-items: center;
+ }
+ .header {
+   margin: 0;
+   margin-bottom: 10px;
+ }
+ .form-container {
+   align-items: center;
+ }
+ .chart-container {
+   width: 300px;
+ }
+}
+@media only screen and (min-width: 400px) and (max-width: 799px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 10px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .form-container {
+    align-items: center;
+  }
+
+  .chart-container {
+    width: 400px;
+  }
+}
+@media only screen and (min-width: 800px) and (max-width: 1440px) {
+  
+  .chart-container {
+    width: 500px;
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 1441px) {
+  .chart-container{
+    width: 800px;
+  }
+  .form-container {
+    width: 400px;
+  }
+  .sublabel-desc {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+}
+
