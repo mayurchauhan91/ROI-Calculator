@@ -21,21 +21,17 @@ const Home = () => {
 
   return (
     <div className="App">
-      <div>
-        <h1 className="header">ROI Calculator</h1>
-      </div>
-      <div className="detail-container">
-        <div className="main-container">
-          <Investmnet
-            submitAgeValue={submitAgeValue}
-            submitBalanceValue={submitBalanceValue}
+      <h1 className="header">ROI Calculator</h1>
+      <div className="main-container">
+        <Investmnet
+          submitAgeValue={submitAgeValue}
+          submitBalanceValue={submitBalanceValue}
+        />
+        <div className="chart-container">
+          <BarChart
+            ageData={calculateAgeValue}
+            balanceValue={calculateBalanceValue}
           />
-          <div className="chart-container">
-            <BarChart
-              ageData={calculateAgeValue}
-              balanceValue={calculateBalanceValue}
-            />
-          </div>
         </div>
       </div>
     </div>
