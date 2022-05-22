@@ -5,6 +5,7 @@
 }
 html {
   background-color: #80c1ff;
+  height: 100vh;
 }
 .App, .main-container, .form-container {
   display: flex;
@@ -14,9 +15,8 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px;
-  padding: 10px;
-  height: 93vh;
+  margin: 1.3rem;
+  height: 94vh;
   border: 1px solid lightgray;
   border-radius: 10px;
   background-color: white;
@@ -32,7 +32,6 @@ html {
   color:rgb(74, 74, 74);
   text-align: center;
   width: 100%;
-  margin-bottom: 60px;
   margin-top: 20px;
 }
 .form-container {
@@ -83,6 +82,7 @@ html {
  }
 }
 
+
 @media only screen and (max-width: 281px) {
   .App {
     margin: 10px;
@@ -124,7 +124,6 @@ html {
     flex-direction: column;
     align-items: center;
     width: initial;
-    height: 100%;
   }
   .chart-container {
     width: 500px;
@@ -133,6 +132,9 @@ html {
 }
 
 @media only screen and (min-width: 1441px) {
+  .App {
+    height: auto;
+  }
   .chart-container{
     width: 800px;
   }
@@ -142,6 +144,16 @@ html {
   .sublabel-desc {
     font-size: 1rem;
     margin-bottom: 15px;
+  }
+}
+@media only screen and (min-height: 399px) {
+  .App {
+    height:fit-content;
+  }
+}
+@media only screen and (min-height: 765px) {
+  .App {
+    height:94vh;
   }
 }
 
