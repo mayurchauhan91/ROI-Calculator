@@ -8,10 +8,10 @@
 
 ## This project uses the following technologies:
 
-ReactJS
-ChartJS
-CSS
-Material UI
+* ReactJS
+* ChartJS
+* CSS
+* Material UI
 
 The investment calcultor was build using ReactJS and ChartJS. 
 
