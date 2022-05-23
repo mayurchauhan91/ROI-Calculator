@@ -13,11 +13,13 @@
 * CSS
 * Material UI
 
-The investment calcultor was build using ReactJS and ChartJS. 
+
+The investment calculator was built using ReactJS and ChartJS.
 
 This project is used to calculate a specific parameter for an investment plan.
 
-Project uses the input added to the feild which calculate the values and pass that values to Bar Chart.
+Project uses the input added to the field which calculates the values and passes those values to Bar Chart.
+
 
 
 
