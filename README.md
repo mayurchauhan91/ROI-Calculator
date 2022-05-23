@@ -1,6 +1,6 @@
 # ROI Calculator
 
-## [Check it here]( master--astonishing-pika-b91b72.netlify.app/) :fire:
+## [Check it here](https://master--astonishing-pika-b91b72.netlify.app/) :fire:
 
 ## This project was created using ReactJS and ChartJS.
 
