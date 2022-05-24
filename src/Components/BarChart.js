@@ -1,5 +1,7 @@
 // react-imports
 import React from "react";
+// css
+import "../App.css";
 // react-chartjs imports
 import { Bar } from "react-chartjs-2";
 // chart.js imports
@@ -22,7 +24,7 @@ const BarChart = ({ ageData, balanceValue }) => {
   };
 
   return (
-    <div>
+    <div className="chart">
       <Bar
         data={chartData}
         width={600}

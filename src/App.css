@@ -3,157 +3,244 @@
   padding: 0;
   font-family: 'Roboto Flex', sans-serif;;
 }
-html {
-  background-color: #80c1ff;
+
+body {
   height: 100vh;
+  background-color: #ddeefc;
 }
-.App, .main-container, .form-container {
+
+body, .App, .header, .main-container, .form-container, .form, .chart-container {
   display: flex;
+}
+body, .App, .header, .form-container, .form, .chart-container {
+  flex-direction: column;
+}
+body, .App, .header {
+  align-items: center;
+}
+
+body, .form-container, .chart-container {
+  justify-content: center;
 }
 
 .App {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 1.3rem;
-  height: 94vh;
-  border: 1px solid lightgray;
+  padding: 30px;
   border-radius: 10px;
   background-color: white;
 }
-.main-container {
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  padding-bottom: 20px;
-}
 .header {
-  display: block;
   color:rgb(74, 74, 74);
-  text-align: center;
   width: 100%;
-  margin-top: 20px;
 }
-.form-container {
-  flex-direction: column;
-  width: 210px;
-  margin-bottom: 50px;
+.main-container {
+  justify-content: space-evenly;
+  padding: 30px;
+  width: 100%;
 }
-
+.form { 
+  width: 250px;
+}
+.button {
+  margin: 0 25px;
+}
 .sublabel-desc {
   font-size: 0.8rem;
   color: darkgray;
   margin-bottom: 10px;
 }
 
-.chart-container {
-  height: fit-content;
-  margin-top: 60px;
-  width: 700px;
-}
-.button {
-  margin: 0 25px;
-}
-
-@media only screen and (max-width: 399px) {
- .App {
-   flex-direction: column;
-   align-items: center;
-   padding: 0;
-   margin: 20px;
-   border: none;
-   width: initial;
-   height: initial;
-   text-align: center;
- }
- .main-container {
-   flex-direction: column;
-   align-items: center;
- }
- .header {
-   margin: 0;
-   margin: 30px 0 30px 0;
- }
- .form-container {
-   align-items: center;
- }
- .chart-container {
-   width: 250px;
- }
-}
-
-
-@media only screen and (max-width: 281px) {
-  .App {
-    margin: 10px;
+@media only screen and (min-height: 500px) and (max-height: 700px){
+  body {
+    height: fit-content;
   }
-  .chart-container{
-    width: 240px;
+  .App{ 
+    margin: 30px;
+  }
+}
+@media only screen and (max-height: 701px) {
+  body {
+    height: fit-content;
   }
 }
 
-@media only screen and (min-width: 400px) and (max-width: 950px) {
+
+@media only screen and (max-width: 414px) {
+  body {
+    height: fit-content;
+    width: fit-content;
+  }
   .App {
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
     margin: 20px;
-    border: none;
-    width: initial;
-    height: initial;
-    text-align: center;
+    padding: 0;
   }
   .main-container {
     flex-direction: column;
     align-items: center;
+    width: fit-content;
+    padding: 30px;
   }
   .header {
-    margin: 0;
-    margin: 30px 0 30px 0;
+    font-size: 1.5rem;
+    padding: 15px 0 15px 0 ;
   }
-  .form-container {
+  .form-container{
+    text-align: center;
+  }
+  .form {
     align-items: center;
+    width: 200px;
+    padding-bottom: 20px;
   }
-
   .chart-container {
-    width: 360px;
+    width: 300px;
   }
 }
-@media only screen and (min-width: 951px) and (max-width: 1440px) { 
+
+@media only screen and (max-width: 281px) {
+  body {
+    height: fit-content;
+  }
   .App {
+    margin: 20px;
+    padding: 0;
+  }
+  .header{
+    font-size: 1.5rem;
+    padding:20px 0 20px 0;
+  }
+  .main-container{
+    padding: 0;
+  }
+  .chart-container {
+    flex-direction: row;
+    width: 250px;
+  }
+  .chart{
+    width: 230px;
+  }
+}
+
+
+@media only screen and (min-width: 415px) and (max-width: 600px) {
+  body {
+    height: fit-content;
+    width: auto;
+  }
+  .App {
+    margin: 20px;
+    padding: 0;
+  }
+  .main-container {
     flex-direction: column;
     align-items: center;
-    width: initial;
+    width: fit-content;
+    padding: 30px;
+  }
+  .header {
+    font-size: 1.5rem;
+    padding: 15px 0 15px 0 ;
+  }
+  .form-container{
+    text-align: center;
+  }
+  .form {
+    align-items: center;
+    width: 200px;
+    padding-bottom: 20px;
   }
   .chart-container {
-    width: 500px;
-    margin-left: 20px;
+    width: 370px;
   }
 }
 
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  body { 
+    height: fit-content;
+  }
   .App {
-    height: auto;
+    margin: 20px;
+    padding: 0;
   }
-  .chart-container{
-    width: 800px;
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    padding: 30px;
   }
-  .form-container {
-    width: 400px;
+  .header {
+    font-size: 1.5rem;
+    padding: 15px 0 15px 0 ;
   }
-  .sublabel-desc {
-    font-size: 1rem;
-    margin-bottom: 15px;
+  .form-container{
+    text-align: center;
+  }
+  .form {
+    align-items: center;
+    width: 200px;
+    padding-bottom: 20px;
+  }
+  .chart-container {
+    width: 370px;
   }
 }
-@media only screen and (min-height: 399px) {
+@media only screen and (min-width: 901px) and (max-width: 1000px) {
+  body {
+    height: fit-content;
+  }
   .App {
-    height:fit-content;
+    margin: 20px;
+    padding: 0;
+  }
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    padding: 30px;
+  }
+  .header {
+    font-size: 1.5rem;
+    padding: 15px 0 15px 0 ;
+  }
+  .form-container{
+    text-align: center;
+  }
+  .form {
+    align-items: center;
+    width: 200px;
+    padding-bottom: 20px;
+  }
+  .chart-container {
+    width: 370px;
   }
 }
-@media only screen and (min-height: 765px) {
+
+@media only screen and (min-width: 1001px) and (max-width: 1050px) {
+  body {
+    height: fit-content;
+  }
   .App {
-    height:94vh;
+    width: 87vw;
+    margin: 20px;
+  }
+}
+
+@media only screen and (min-width: 1051px) and (max-width: 1200px) {
+  body {
+    height: fit-content;
+  }  
+  .App {
+    width: 87vw;
+    margin: 30px;
+  }
+  .chart-container
+{
+  width: 600px;
+}
+  
+}
+@media only screen and (min-width: 1201px) {
+  .App {
+    width: 80vw;
   }
 }
 

@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 // components imports
 import currencies from "./Currencies";
+// css
+import "../App.css";
 
 const Investment = ({ submitAgeValue, submitBalanceValue }) => {
   const [currency, setCurrency] = useState("£");
@@ -80,7 +82,7 @@ const Investment = ({ submitAgeValue, submitBalanceValue }) => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <FormControl
         component="form"
         sx={{
@@ -89,7 +91,7 @@ const Investment = ({ submitAgeValue, submitBalanceValue }) => {
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <div className="form-container">
+        <div className="form">
           <label className="sublabel-desc">Please select your currency</label>
           <TextField
             required
