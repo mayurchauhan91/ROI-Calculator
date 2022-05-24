@@ -24,9 +24,10 @@ body, .form-container, .chart-container {
 }
 
 .App {
-  padding: 30px;
+  padding: 10px;
   border-radius: 10px;
   background-color: white;
+  box-shadow: 0 0 20px 0 lightgray;
 }
 .header {
   color:rgb(74, 74, 74);
