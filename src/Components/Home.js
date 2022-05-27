@@ -1,8 +1,10 @@
 // react-imports
 import React, { useState } from "react";
+
 // components
 import Investmnet from "./Investment";
 import BarChart from "./BarChart";
+
 // css
 import "../App.css";
 
@@ -15,6 +17,7 @@ const Home = () => {
   const submitAgeValue = (data) => {
     setCalculateAgeValue(data);
   };
+
   const submitBalanceValue = (data) => {
     setCalculateBalanceValue(data);
   };

@@ -1,5 +1,6 @@
 // react-imports
 import React, { useState } from "react";
+
 // material ui imports
 import {
   Slider,
@@ -8,8 +9,10 @@ import {
   Button,
   FormControl,
 } from "@mui/material";
+
 // components imports
 import currencies from "./Currencies";
+
 // css
 import "../App.css";
 
@@ -117,7 +120,6 @@ const Investment = ({ submitAgeValue, submitBalanceValue }) => {
             id="outlined"
             label="Initial Deposit"
             placeholder={currency + "10000.00"}
-            defaultValue=""
             value={startAmount}
             onChange={handleStartAmountChange}
           />
@@ -131,7 +133,6 @@ const Investment = ({ submitAgeValue, submitBalanceValue }) => {
             id="outlined-required"
             label="Monthly Deposit"
             placeholder={currency + "500.00"}
-            defaultValue=""
             value={monthlyInvest}
             onChange={handleInvestAmountChange}
           />
@@ -155,7 +156,6 @@ const Investment = ({ submitAgeValue, submitBalanceValue }) => {
             label="Estimate Rate"
             placeholder={"5.00 %"}
             value={rate}
-            defaultValue=""
             onChange={handleRateChange}
           />
           <br />

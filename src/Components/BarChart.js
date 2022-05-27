@@ -1,11 +1,15 @@
 // react-imports
 import React from "react";
+
 // css
 import "../App.css";
+
 // react-chartjs imports
 import { Bar } from "react-chartjs-2";
+
 // chart.js imports
 import { Chart, registerables } from "chart.js";
+
 // chartjs dependencies
 Chart.register(...registerables);
 
@@ -16,8 +20,8 @@ const BarChart = ({ ageData, balanceValue }) => {
       {
         label: "Balance",
         data: balanceValue,
-        backgroundColor: ["rgba(75, 192, 192, 0.3)"],
-        borderColor: ["rgba(75,192,192,1)"],
+        backgroundColor: ["rgba(40, 147, 235, 0.3)"],
+        borderColor: ["rgba(40, 147, 235,1)"],
         borderWidth: 1,
       },
     ],
